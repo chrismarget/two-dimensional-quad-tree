@@ -44,7 +44,7 @@ func (cp *ColorPoint) Overlaps(r tdqt.Rectangle) (bool, bool) {
 	return false, false
 }
 
-func NewColorPoint(x, y int64, color color.RGBA) tdqt.Object {
+func NewColorPoint(x, y int64, color color.RGBA) ColorPoint {
 	result := ColorPoint{
 		x:     x,
 		y:     y,
@@ -53,5 +53,5 @@ func NewColorPoint(x, y int64, color color.RGBA) tdqt.Object {
 
 	result.computeHash()
 
-	return &result
+	return result
 }
