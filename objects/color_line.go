@@ -22,11 +22,11 @@ type ColorLine struct {
 	hash  uint64
 }
 
-func (cl *ColorLine) Hash() uint64 {
+func (cl ColorLine) Hash() uint64 {
 	return cl.hash
 }
 
-func (cl *ColorLine) String() string {
+func (cl ColorLine) String() string {
 	return fmt.Sprintf("(%d,%d)<->(%d,%d): (%d,%d,%d,%d)", cl.x1, cl.y1, cl.x2, cl.y2, cl.color.R, cl.color.G, cl.color.B, cl.color.A)
 }
 
@@ -41,7 +41,7 @@ func (cl *ColorLine) computeHash() {
 	cl.hash = FnvHash(bytes)
 }
 
-func (cl *ColorLine) Overlaps(r tdqt.Rectangle) (bool, bool) {
+func (cl ColorLine) Overlaps(r tdqt.Rectangle) (bool, bool) {
 	oi1 := octothorpeInfo(r, cl.x1, cl.y1)
 	oi2 := octothorpeInfo(r, cl.x2, cl.y2)
 	if oi1 == (row2&col2) || oi2 == (row2&col2) {

@@ -17,11 +17,11 @@ type ColorPoint struct {
 	hash  uint64
 }
 
-func (cp *ColorPoint) Hash() uint64 {
+func (cp ColorPoint) Hash() uint64 {
 	return cp.hash
 }
 
-func (cp *ColorPoint) String() string {
+func (cp ColorPoint) String() string {
 	return fmt.Sprintf("(%d,%d): (%d,%d,%d,%d)", cp.x, cp.y, cp.color.R, cp.color.G, cp.color.B, cp.color.A)
 }
 
@@ -34,7 +34,7 @@ func (cp *ColorPoint) computeHash() {
 	cp.hash = FnvHash(bytes)
 }
 
-func (cp *ColorPoint) Overlaps(r tdqt.Rectangle) (bool, bool) {
+func (cp ColorPoint) Overlaps(r tdqt.Rectangle) (bool, bool) {
 	x, y := r.Limits()
 	overlap := x.Contains(cp.x) && y.Contains(cp.y)
 	if overlap {
