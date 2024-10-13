@@ -93,7 +93,6 @@ func TestLimits_Midpoint_int64(t *testing.T) {
 			t.Logf("range: %d <-> %d; mid: %d", tCase.min, tCase.max, actual)
 		})
 	}
-
 }
 
 // func TestLimits_Midpoint_uint64(t *testing.T) {

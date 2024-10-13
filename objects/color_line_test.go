@@ -1,12 +1,13 @@
 package objects_test
 
 import (
-	"github.com/chrismarget/two-dimensional-quad-tree/objects"
-	"github.com/chrismarget/two-dimensional-quad-tree/tdqt"
-	"github.com/stretchr/testify/require"
 	"image/color"
 	"strconv"
 	"testing"
+
+	"github.com/chrismarget/two-dimensional-quad-tree/objects"
+	"github.com/chrismarget/two-dimensional-quad-tree/tdqt"
+	"github.com/stretchr/testify/require"
 )
 
 func TestColorLine_Overlaps(t *testing.T) {

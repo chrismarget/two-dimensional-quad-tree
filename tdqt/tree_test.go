@@ -3,7 +3,6 @@ package tdqt_test
 import (
 	"encoding/binary"
 	"fmt"
-	"github.com/stretchr/testify/require"
 	"image/color"
 	"math"
 	"math/rand/v2"
@@ -12,6 +11,7 @@ import (
 
 	"github.com/chrismarget/two-dimensional-quad-tree/objects"
 	"github.com/chrismarget/two-dimensional-quad-tree/tdqt"
+	"github.com/stretchr/testify/require"
 )
 
 func TestTree_Insert_Search(t *testing.T) {
@@ -41,7 +41,7 @@ func TestTree_Insert_Search(t *testing.T) {
 			x, y := rand.Int64(), rand.Int64()
 			tree.Insert(objects.NewColorPoint(x, y, randColor))
 		} else {
-			var x1, y1 = rand.Int64(), rand.Int64()
+			x1, y1 := rand.Int64(), rand.Int64()
 			var x2, y2 int64
 
 			if x1 > 0 {
@@ -64,7 +64,7 @@ func TestTree_Insert_Search(t *testing.T) {
 	fmt.Printf("Total (re)insertions: %d\nMax depth: %d\n", insertions, maxDepth)
 
 	half := int64(math.MaxInt64 / 2)
-	var x1, y1 = rand.Int64N(half), rand.Int64N(half)
+	x1, y1 := rand.Int64N(half), rand.Int64N(half)
 	var x2, y2 int64
 	if x1 > 0 {
 		x2 = x1
